@@ -1,0 +1,69 @@
+﻿<Window x:Class="Krypto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Krypto"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="1">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="2a">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="2b">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="2c">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="3b">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Vigenere'a">
+                <StackPanel>
+                    <Button>Encode</Button>
+                    <Button>Decode</Button>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
