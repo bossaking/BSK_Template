@@ -24,5 +24,11 @@ namespace Krypto
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            KryptographyService kryptographyService = new KryptographyService();
+            kryptographyService.DecodeRail("CRYPTOGRAPHY", 3);
+        }
     }
 }
