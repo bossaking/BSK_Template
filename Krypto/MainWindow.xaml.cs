@@ -28,7 +28,7 @@ namespace Krypto
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             KryptographyService kryptographyService = new KryptographyService();
-            kryptographyService.DecodeRail("CRYPTOGRAPHY", 3);
+            kryptographyService.EncodeMatrixShift("CRYPTOGRAPHY");
         }
     }
 }

@@ -129,11 +129,116 @@ namespace Krypto
         }         
         public string EncodeMatrixShift(string input)
         {
-            return null;
+            string output = string.Empty;
+            int d = 5;
+
+            char[,] matrix = new char[d, d];
+
+            int index = 0;
+            int row = 0;
+            while(index < input.Length)
+            {
+                int ptr = index;
+                matrix[row, ptr % 5] = input[index];
+
+                index++;
+
+                if (index % 5 == 0 && index != 0)
+                    row++;
+
+                
+            }
+
+            row = 0;
+            index = 0;
+
+            for(int i = 0; i < d; i++)
+            {
+                if (matrix[row, 2] != '\0')
+                {
+                    output += matrix[row, 2];
+                    index++;
+                    if (index >= input.Length)
+                        break;
+                }
+
+                if (matrix[row, 3] != '\0')
+                {
+                    output += matrix[row, 3];
+                    index++;
+                    if (index >= input.Length)
+                        break;
+                }
+
+                if (matrix[row, 0] != '\0')
+                {
+                    output += matrix[row, 0];
+                    index++;
+                    if (index >= input.Length)
+                        break;
+                }
+
+                if (matrix[row, 4] != '\0')
+                {
+                    output += matrix[row, 4];
+                    index++;
+                    if (index >= input.Length)
+                        break;
+                }
+
+                if (matrix[row, 1] != '\0')
+                {
+                    output += matrix[row, 1];
+                    index++;
+                    if (index >= input.Length)
+                        break;
+                }
+
+
+                row++;
+            }
+
+            return output;
         }         
         public string DecodeMatrixShift(string input)
         {
-            return null;
+            string output = string.Empty;
+
+            while (input.Length > 0)
+            {
+                if (input.Length >= 2)
+                {
+                    output += input[1];
+                }
+
+                if (input.Length >= 5)
+                {
+                    output += input[4];
+                }
+
+                output += input[0];
+
+                if (input.Length >= 4)
+                {
+                    output += input[3];
+                }
+
+                if (input.Length >= 3)
+                {
+                    output += input[2];
+                }
+
+                if (input.Length >= 5)
+                {
+                    input = input[5..];
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return output;
         }         
         public string Encode2b(string input, string key)
         {
@@ -152,7 +257,7 @@ namespace Krypto
             return null;
         } 
 
-        public string EncodeCeaser(string input, int a,int b)
+        public string EncodeCeaser(string input, int a, int b)
         {
             return null;
         }
