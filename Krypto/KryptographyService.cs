@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Krypto
@@ -129,124 +130,186 @@ namespace Krypto
         }         
         public string EncodeMatrixShift(string input)
         {
-            string output = string.Empty;
-            int d = 5;
+            int[] keyValues = { 2, 3, 0, 4, 1 };
+            int rows = input.Length / keyValues.Length;
+            
+            if (input.Length % keyValues.Length != 0)
+            {
+                rows++;
+            }
 
-            char[,] matrix = new char[d, d];
-
+            char[,] arr = new char[rows, keyValues.Length];
             int index = 0;
-            int row = 0;
-            while(index < input.Length)
+            for (int i = 0; i < rows; i++)
             {
-                int ptr = index;
-                matrix[row, ptr % 5] = input[index];
+                for (int j = 0; j < keyValues.Length; j++)
+                {
+                    if (index < input.Length)
+                    {
+                        arr[i, j] = input[index];
+                        index++;
+                    }
+                    else
+                    {
+                        arr[i, j] = '#';
+                    }
+                }
+            }
+            StringBuilder str = new StringBuilder();
 
-                index++;
+            for (int i = 0; i < rows; i++)
+            {
+                foreach (int col in keyValues)
+                {
 
-                if (index % 5 == 0 && index != 0)
-                    row++;
-
-                
+                    if (arr[i, col] != '#')
+                        str.Append(arr[i, col]);
+                }
             }
 
-            row = 0;
-            index = 0;
-
-            for(int i = 0; i < d; i++)
-            {
-                if (matrix[row, 2] != '\0')
-                {
-                    output += matrix[row, 2];
-                    index++;
-                    if (index >= input.Length)
-                        break;
-                }
-
-                if (matrix[row, 3] != '\0')
-                {
-                    output += matrix[row, 3];
-                    index++;
-                    if (index >= input.Length)
-                        break;
-                }
-
-                if (matrix[row, 0] != '\0')
-                {
-                    output += matrix[row, 0];
-                    index++;
-                    if (index >= input.Length)
-                        break;
-                }
-
-                if (matrix[row, 4] != '\0')
-                {
-                    output += matrix[row, 4];
-                    index++;
-                    if (index >= input.Length)
-                        break;
-                }
-
-                if (matrix[row, 1] != '\0')
-                {
-                    output += matrix[row, 1];
-                    index++;
-                    if (index >= input.Length)
-                        break;
-                }
-
-
-                row++;
-            }
-
-            return output;
+            return str.ToString();
         }         
         public string DecodeMatrixShift(string input)
         {
-            string output = string.Empty;
-
-            while (input.Length > 0)
+            int[] keyValues = { 2, 3, 0, 4, 1 };
+            int rows = input.Length / keyValues.Length;
+            
+            if (input.Length % keyValues.Length != 0)
             {
-                if (input.Length >= 2)
-                {
-                    output += input[1];
-                }
+                rows++;
+            }
 
-                if (input.Length >= 5)
-                {
-                    output += input[4];
-                }
+            char[,] arr = new char[rows, keyValues.Length];
 
-                output += input[0];
+            int emptyCells = rows * keyValues.Length - input.Length;
+            int inputIndex = keyValues.Length - 1;
 
-                if (input.Length >= 4)
-                {
-                    output += input[3];
-                }
+            for (int i = 0; i < emptyCells; i++)
+            {
+                arr[rows - 1, inputIndex] = '#';
+                inputIndex--;
+            }
 
-                if (input.Length >= 3)
+            inputIndex = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                foreach (var col in keyValues)
                 {
-                    output += input[2];
-                }
-
-                if (input.Length >= 5)
-                {
-                    input = input[5..];
-                }
-                else
-                {
-                    break;
+                    if (arr[i, col] != '#')
+                        arr[i, col] = input[inputIndex++];
                 }
             }
 
-            return output;
+            StringBuilder str = new StringBuilder();
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < keyValues.Length; j++)
+                {
+                    if (arr[i, j] != '#')
+                        str.Append(arr[i, j]);
+                }
+            }
+            return str.ToString();
         }         
         public string Encode2b(string input, string key)
         {
-            return null;
+            int rows = input.Length / key.Length;
+            if(input.Length % key.Length != 0)
+            {
+                rows++;
+            }
+
+            char[,] arr = new char[rows, key.Length];
+            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c)));
+
+            key = key.ToLower();
+
+            int index = 0;
+            for(int i = 0; i < rows; i++)
+            {
+                for(int j = 0; j < key.Length; j++)
+                {
+                    if(input.Length - 1 >= index)
+                    {
+                        arr[i, j] = input[index];
+                        index++;
+                    }
+                    else
+                    {
+                        arr[i, j] = '#';
+                    }
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            
+            for(int i = 97; i <= 122; i++)
+            {
+                for(int j = 0; j < key.Length; j++)
+                {
+                    if(key[j] == i)
+                    {
+                        for(int k = 0; k < rows; k++)
+                        {
+                            if(arr[k,j] != '#')
+                            {
+                                stringBuilder.Append(arr[k, j]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return stringBuilder.ToString();
         } 
         public string Decode2b(string input, string key)
         {
-            return null;
+            int rows = input.Length / key.Length;
+            if (input.Length % key.Length != 0)
+            {
+                rows++;
+            }
+
+            char[,] arr = new char[rows, key.Length];
+            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c)));
+
+            key = key.ToLower();
+
+            int index = 0;
+            for (int i = 97; i <= 122; i++)
+            {
+                for (int j = 0; j < key.Length; j++)
+                {
+                    if (key[j] == i)
+                    {
+                        for (int k = 0; k < rows; k++)
+                        {
+                            if (index == input.Length)
+                                break;
+
+                            arr[k, j] = input[index];
+                            index++;
+                        }
+                    }
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < key.Length; j++)
+                {
+                    if (arr[i, j] != '\0')
+                    {
+                        stringBuilder.Append(arr[i, j]);
+                    }
+                }
+            }
+
+
+            return stringBuilder.ToString();
         } 
         public string Encode2c(string input, string key)
         {
