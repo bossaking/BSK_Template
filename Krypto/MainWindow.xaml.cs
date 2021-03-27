@@ -28,7 +28,8 @@ namespace Krypto
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             KryptographyService kryptographyService = new KryptographyService();
-            kryptographyService.Decode2b("CYPTRHGYOARP", "CONVENIENCE");
+            kryptographyService.DecodeCaesar("TURGizvUFGCR", 7, 5);
+
         }
     }
 }

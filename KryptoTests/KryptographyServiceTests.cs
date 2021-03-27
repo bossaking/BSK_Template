@@ -93,7 +93,7 @@ namespace KryptoTests
         [TestCase("DoZakodowaniaTojestTekst", "CONVENIENCE", "DoienojewtosaTtdkaZaskoT")]
         public void Encode2c(string input, string key, string output)
         {
-            var result = service.Decode2b(input, key);
+            var result = service.Encode2c(input, key);
 
             Assert.AreEqual(output, result);
 
@@ -106,33 +106,33 @@ namespace KryptoTests
         [TestCase("DoienojewtosaTtdkaZaskoT", "CONVENIENCE", "DoZakodowaniaTojestTekst")]
         public void Decode2c(string input, string key, string output)
         {
-            var result = service.Decode2b(input, key);
+            var result = service.Decode2c(input, key);
 
             Assert.AreEqual(output, result);
 
         }
 
-        [TestCase("CRYPTOGRAPHY",7,5, "TURGIZVUFGCR")]
-        [TestCase("TestowanieSzyfrow", 7, 5, "IHBIZDFSJHBYROUZD")]
-        [TestCase("Kryptografia", 7, 5, "XURGIZVUFOJF")]
-        [TestCase("SiecKomputerowa", 7, 5, "BJHTXZLGPIHUZDF")]
-        [TestCase("DoZakodowaniaTojestTekst", 7, 5, "AZYFXZAZDFSJFIZQHBIIHXBI")]
-        public void EncodeCeaser(string input, int a, int b, string output)
+        [TestCase("CRYPTOGRAPHY",7,5, "TURGizvUFGCR")]
+        [TestCase("TestowanieSzyfrow", 7, 5, "iHBIZdfSjHbyrOuZd")]
+        [TestCase("Kryptografia", 7, 5, "XurgIZVufOjf")]
+        [TestCase("SiecKomputerowa", 7, 5, "bjHtXZLgPIHuZdf")]
+        [TestCase("DoZakodowaniaTojestTekst", 7, 5, "aZYfxZAZdfSjfiZqHBIiHxBI")]
+        public void EncodeCaesar(string input, int a, int b, string output)
         {
-            var result = service.EncodeCeaser(input, a,b);
+            var result = service.EncodeCaesar(input, a,b);
 
             Assert.AreEqual(output, result);
 
         }
 
-        [TestCase("TURGIZVUFGCR", 7, 5, "CRYPTOGRAPHY")]
-        [TestCase("IHBIZDFSJHBYROUZD", 7, 5, "TestowanieSzyfrow")]
-        [TestCase("XURGIZVUFOJF", 7, 5, "Kryptografia")]
-        [TestCase("BJHTXZLGPIHUZDF", 7, 5, "SiecKomputerowa")]
-        [TestCase("AZYFXZAZDFSJFIZQHBIIHXBI", 7, 5, "DoZakodowaniaTojestTekst")]
-        public void DecodeCeaser(string input, int a, int b, string output)
+        [TestCase("TURGizvUFGCR", 7, 5, "CRYPTOGRAPHY")]
+        [TestCase("iHBIZdfSjHbyrOuZd", 7, 5, "TestowanieSzyfrow")]
+        [TestCase("XurgIZVufOjf", 7, 5, "Kryptografia")]
+        [TestCase("bjHtXZLgPIHuZdf", 7, 5, "SiecKomputerowa")]
+        [TestCase("aZYfxZAZdfSjfiZqHBIiHxBI", 7, 5, "DoZakodowaniaTojestTekst")]
+        public void DecodeCaesar(string input, int a, int b, string output)
         {
-            var result = service.EncodeCeaser(input, a, b);
+            var result = service.DecodeCaesar(input, a, b);
 
             Assert.AreEqual(output, result);
 
