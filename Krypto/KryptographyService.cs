@@ -323,21 +323,21 @@ namespace Krypto
         public string Encode2c(string input, string key)
         {
 
-            var arr = new char[input.Length, key.Length];
-            var numberKey = new int[key.Length];
+            char[,] arr = new char[input.Length, key.Length];
+            int[] numberKey = new int[key.Length];
             int newKeyCounter = 0;
 
             for (int i = 65; i < 91; i++)
             {
                 for (int j = 0; j < key.Length; j++)
                 {
-                    if (i == (char)key[j])
+                    if (i == key[j])
                     {
                         numberKey[j] = newKeyCounter++;
                     }
                 }
             }
-            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c))).ToUpper();
+            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c)));
 
             int passwordCounter = 0;
             bool fullRow = false;
@@ -356,7 +356,7 @@ namespace Krypto
                     }
                     else
                     {
-                        arr[i, j] = '#';
+                        arr[i, j] = '*';
                     }
                 }
                 fullRow = false;
@@ -368,11 +368,11 @@ namespace Krypto
             {
                 for (int j = 0; j < key.Length; j++)
                 {
-                    if ((int)key[j] == i)
+                    if (key[j] == i)
                     {
                         for (int k = 0; k < input.Length; k++)
                         {
-                            if (arr[k, j] != '#')
+                            if (arr[k, j] != '*')
                             {
                                 str.Append(arr[k, j]);
                             }
@@ -385,21 +385,21 @@ namespace Krypto
         } 
         public string Decode2c(string input, string key)
         {
-            var arr = new char[input.Length, key.Length];
-            var numberKey = new int[key.Length];
+            char[,] arr = new char[input.Length, key.Length];
+            int[] numberKey = new int[key.Length];
             int newKeyCounter = 0;
 
             for (int i = 65; i < 91; i++)
             {
                 for (int j = 0; j < key.Length; j++)
                 {
-                    if (i == (int)key[j])
+                    if (i == key[j])
                     {
                         numberKey[j] = newKeyCounter++;
                     }
                 }
             }
-            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c))).ToUpper();
+            input = string.Concat(input.Where(c => !char.IsWhiteSpace(c)));
 
             int passwordCounter = 0;
             bool fullRow = false;
@@ -419,7 +419,7 @@ namespace Krypto
                     }
                     else
                     {
-                        arr[i, j] = '#';
+                        arr[i, j] = '*';
                     }
                 }
                 fullRow = false;
@@ -431,11 +431,11 @@ namespace Krypto
             {
                 for (int j = 0; j < key.Length; j++)
                 {
-                    if ((int)key[j] == i)
+                    if (key[j] == i)
                     {
                         for (int m = 0; m < input.Length; m++)
                         {
-                            if (arr[m, j] != '#')
+                            if (arr[m, j] != '*')
                             {
                                 arr[m, j] = input[passwordCounter++];
                             }
@@ -451,14 +451,13 @@ namespace Krypto
             {
                 for (int j = 0; j < key.Length; j++)
                 {
-                    if (arr[i, j] != '#')
+                    if (arr[i, j] != '*')
                         str.Append(arr[i, j]);
                 }
             }
 
             return str.ToString();
         } 
-
         public string EncodeCaesar(string input, int k1, int k0)
         {
             string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -475,7 +474,6 @@ namespace Krypto
             }
             return str.ToString();
         }
-
         public string DecodeCaesar(string input, int k1, int k0)
         {
             string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -492,7 +490,6 @@ namespace Krypto
             }
             return str.ToString();
         }
-
         public string EncodeVigenere(string input, string key)
         {
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -528,7 +525,6 @@ namespace Krypto
             }
             return str.ToString();
         }
-
         public string DecodeVigenere(string input, string key)
         {
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
