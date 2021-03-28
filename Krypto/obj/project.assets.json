@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\szymw\\.nuget\\packages\\": {}
+    "C:\\Users\\ddgam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\szymw\\source\\repos\\Krypto\\Krypto\\Krypto.csproj",
+      "projectUniqueName": "E:\\BSK\\Crypto\\BSK_Template\\Krypto\\Krypto.csproj",
       "projectName": "Krypto",
-      "projectPath": "C:\\Users\\szymw\\source\\repos\\Krypto\\Krypto\\Krypto.csproj",
-      "packagesPath": "C:\\Users\\szymw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\szymw\\source\\repos\\Krypto\\Krypto\\obj\\",
+      "projectPath": "E:\\BSK\\Crypto\\BSK_Template\\Krypto\\Krypto.csproj",
+      "packagesPath": "C:\\Users\\ddgam\\.nuget\\packages\\",
+      "outputPath": "E:\\BSK\\Crypto\\BSK_Template\\Krypto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\szymw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ddgam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

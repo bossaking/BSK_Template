@@ -4634,19 +4634,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\szymw\\.nuget\\packages\\": {}
+    "C:\\Users\\ddgam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\szymw\\source\\repos\\Krypto\\KryptoTests\\KryptoTests.csproj",
+      "projectUniqueName": "E:\\BSK\\Crypto\\BSK_Template\\KryptoTests\\KryptoTests.csproj",
       "projectName": "KryptoTests",
-      "projectPath": "C:\\Users\\szymw\\source\\repos\\Krypto\\KryptoTests\\KryptoTests.csproj",
-      "packagesPath": "C:\\Users\\szymw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\szymw\\source\\repos\\Krypto\\KryptoTests\\obj\\",
+      "projectPath": "E:\\BSK\\Crypto\\BSK_Template\\KryptoTests\\KryptoTests.csproj",
+      "packagesPath": "C:\\Users\\ddgam\\.nuget\\packages\\",
+      "outputPath": "E:\\BSK\\Crypto\\BSK_Template\\KryptoTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\szymw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ddgam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4660,8 +4660,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\szymw\\source\\repos\\Krypto\\Krypto\\Krypto.csproj": {
-              "projectPath": "C:\\Users\\szymw\\source\\repos\\Krypto\\Krypto\\Krypto.csproj"
+            "E:\\BSK\\Crypto\\BSK_Template\\Krypto\\Krypto.csproj": {
+              "projectPath": "E:\\BSK\\Crypto\\BSK_Template\\Krypto\\Krypto.csproj"
             }
           }
         }
@@ -4707,7 +4707,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
