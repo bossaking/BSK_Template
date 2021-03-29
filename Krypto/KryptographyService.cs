@@ -460,7 +460,7 @@ namespace Krypto
         } 
         public string EncodeCaesar(string input, int k1, int k0)
         {
-            string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
             int n = alphabet.Length;
 
             StringBuilder str = new StringBuilder();
@@ -468,25 +468,39 @@ namespace Krypto
 
             for (int i = 0; i < input.Length; i++)
             {
-                char znak = alphabet[((alphabet.IndexOf(input[i]) * k1) + k0) % n];
-
-                str.Append(znak);
+                char znak = alphabet[((alphabet.IndexOf(input[i], StringComparison.CurrentCultureIgnoreCase) * k1) + k0) % n];
+                if(input[i] < 'a')
+                {
+                    str.Append(znak.ToString().ToUpper());
+                }
+                else
+                {
+                    str.Append(znak);
+                }
+                
             }
             return str.ToString();
         }
         public string DecodeCaesar(string input, int k1, int k0)
         {
-            string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            int n = 52;
-            int euler = 24;
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            int n = 26;
+            int euler = 12;
 
             StringBuilder str = new StringBuilder();
             input = string.Concat(input.Where(c => !char.IsWhiteSpace(c)));
 
             for (int i = 0; i < input.Length; i++)
             {
-                char znak = alphabet[(int)((alphabet.IndexOf(input[i]) + (n - k0)) * BigInteger.Pow(k1, euler - 1) % n)];
-                str.Append(znak);
+                char znak = alphabet[(int)((alphabet.IndexOf(input[i], StringComparison.CurrentCultureIgnoreCase) + (n - k0)) * BigInteger.Pow(k1, euler - 1) % n)];
+                if (input[i] < 'a')
+                {
+                    str.Append(znak.ToString().ToUpper());
+                }
+                else
+                {
+                    str.Append(znak);
+                }
             }
             return str.ToString();
         }

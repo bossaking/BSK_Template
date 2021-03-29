@@ -59,3 +59,7 @@ C:\Studia\Projects\BSK_Cryprography\BSK_Template\Krypto\obj\Debug\netcoreapp3.1\
 C:\Studia\Projects\BSK_Cryprography\BSK_Template\Krypto\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 C:\Studia\Projects\BSK_Cryprography\BSK_Template\Krypto\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 C:\Studia\Projects\BSK_Cryprography\BSK_Template\Krypto\obj\Debug\netcoreapp3.1\Krypto.csproj.CopyComplete
+E:\BSK\Crypto\BSK_Template\Krypto\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+E:\BSK\Crypto\BSK_Template\Krypto\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+E:\BSK\Crypto\BSK_Template\Krypto\obj\Debug\netcoreapp3.1\App.baml
+E:\BSK\Crypto\BSK_Template\Krypto\obj\Debug\netcoreapp3.1\Krypto.csproj.CopyComplete
