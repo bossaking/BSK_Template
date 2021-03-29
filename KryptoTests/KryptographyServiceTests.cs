@@ -112,11 +112,11 @@ namespace KryptoTests
 
         }
 
-        [TestCase("CRYPTOGRAPHY",7,5, "TURGizvUFGCR")]
-        [TestCase("TestowanieSzyfrow", 7, 5, "iHBIZdfSjHbyrOuZd")]
-        [TestCase("Kryptografia", 7, 5, "XurgIZVufOjf")]
-        [TestCase("SiecKomputerowa", 7, 5, "bjHtXZLgPIHuZdf")]
-        [TestCase("DoZakodowaniaTojestTekst", 7, 5, "aZYfxZAZdfSjfiZqHBIiHxBI")]
+        [TestCase("CRYPTOGRAPHY",7,5, "TURGIZVUFGCR")]
+        [TestCase("TestowanieSzyfrow", 7, 5, "IhbizdfsjhByrouzd")]
+        [TestCase("Kryptografia", 7, 5, "Xurgizvufojf")]
+        [TestCase("SiecKomputerowa", 7, 5, "BjhtXzlgpihuzdf")]
+        [TestCase("DoZakodowaniaTojestTekst", 7, 5, "AzYfxzazdfsjfIzqhbiIhxbi")]
         public void EncodeCaesar(string input, int a, int b, string output)
         {
             var result = service.EncodeCaesar(input, a,b);
@@ -125,11 +125,11 @@ namespace KryptoTests
 
         }
 
-        [TestCase("TURGizvUFGCR", 7, 5, "CRYPTOGRAPHY")]
-        [TestCase("iHBIZdfSjHbyrOuZd", 7, 5, "TestowanieSzyfrow")]
-        [TestCase("XurgIZVufOjf", 7, 5, "Kryptografia")]
-        [TestCase("bjHtXZLgPIHuZdf", 7, 5, "SiecKomputerowa")]
-        [TestCase("aZYfxZAZdfSjfiZqHBIiHxBI", 7, 5, "DoZakodowaniaTojestTekst")]
+        [TestCase("TURGIZVUFGCR", 7, 5, "CRYPTOGRAPHY")]
+        [TestCase("IhbizdfsjhByrouzd", 7, 5, "TestowanieSzyfrow")]
+        [TestCase("Xurgizvufojf", 7, 5, "Kryptografia")]
+        [TestCase("BjhtXzlgpihuzdf", 7, 5, "SiecKomputerowa")]
+        [TestCase("AzYfxzazdfsjfIzqhbiIhxbi", 7, 5, "DoZakodowaniaTojestTekst")]
         public void DecodeCaesar(string input, int a, int b, string output)
         {
             var result = service.DecodeCaesar(input, a, b);
