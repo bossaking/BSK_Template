@@ -152,7 +152,7 @@ namespace Krypto
                     }
                     else
                     {
-                        arr[i, j] = '#';
+                        arr[i, j] = '*';
                     }
                 }
             }
@@ -163,7 +163,7 @@ namespace Krypto
                 foreach (int col in keyValues)
                 {
 
-                    if (arr[i, col] != '#')
+                    if (arr[i, col] != '*')
                         str.Append(arr[i, col]);
                 }
             }
@@ -187,7 +187,7 @@ namespace Krypto
 
             for (int i = 0; i < emptyCells; i++)
             {
-                arr[rows - 1, inputIndex] = '#';
+                arr[rows - 1, inputIndex] = '*';
                 inputIndex--;
             }
 
@@ -196,8 +196,11 @@ namespace Krypto
             {
                 foreach (var col in keyValues)
                 {
-                    if (arr[i, col] != '#')
-                        arr[i, col] = input[inputIndex++];
+                    if (arr[i, col] != '*')
+                    {
+                        arr[i, col] = input[inputIndex];
+                        inputIndex++;
+                    }
                 }
             }
 
@@ -207,7 +210,7 @@ namespace Krypto
             {
                 for (int j = 0; j < keyValues.Length; j++)
                 {
-                    if (arr[i, j] != '#')
+                    if (arr[i, j] != '*')
                         str.Append(arr[i, j]);
                 }
             }
@@ -238,7 +241,7 @@ namespace Krypto
                     }
                     else
                     {
-                        arr[i, j] = '#';
+                        arr[i, j] = '*';
                     }
                 }
             }
@@ -253,7 +256,7 @@ namespace Krypto
                     {
                         for(int k = 0; k < rows; k++)
                         {
-                            if(arr[k,j] != '#')
+                            if(arr[k,j] != '*')
                             {
                                 stringBuilder.Append(arr[k, j]);
                             }
@@ -317,7 +320,6 @@ namespace Krypto
                 }
             }
 
-
             return stringBuilder.ToString();
         } 
         public string Encode2c(string input, string key)
@@ -327,13 +329,16 @@ namespace Krypto
             int[] numberKey = new int[key.Length];
             int newKeyCounter = 0;
 
+            key = key.ToUpper();
+
             for (int i = 65; i < 91; i++)
             {
                 for (int j = 0; j < key.Length; j++)
                 {
                     if (i == key[j])
                     {
-                        numberKey[j] = newKeyCounter++;
+                        numberKey[j] = newKeyCounter;
+                        newKeyCounter++;
                     }
                 }
             }
@@ -347,7 +352,8 @@ namespace Krypto
                 {
                     if (passwordCounter < input.Length && !fullRow)
                     {
-                        arr[i, j] = input[passwordCounter++];
+                        arr[i, j] = input[passwordCounter];
+                        passwordCounter++;
 
                         if (i % numberKey.Length == numberKey[j])
                         {
@@ -362,7 +368,7 @@ namespace Krypto
                 fullRow = false;
             }
 
-            passwordCounter = 0;
+            //passwordCounter = 0;
             StringBuilder str = new StringBuilder();
             for (int i = 65; i < 91; i++)
             {
@@ -395,7 +401,8 @@ namespace Krypto
                 {
                     if (i == key[j])
                     {
-                        numberKey[j] = newKeyCounter++;
+                        numberKey[j] = newKeyCounter;
+                        newKeyCounter++;
                     }
                 }
             }
@@ -437,7 +444,8 @@ namespace Krypto
                         {
                             if (arr[m, j] != '*')
                             {
-                                arr[m, j] = input[passwordCounter++];
+                                arr[m, j] = input[passwordCounter];
+                                passwordCounter++;
                             }
 
 
@@ -523,7 +531,7 @@ namespace Krypto
 
             StringBuilder str = new StringBuilder();
 
-            for (int i = 0, j = 0; i < input.Length; i++, j++)
+            for (int i = 0; i < input.Length; i++)
             {
                 int col = alphabet.IndexOf(input[i], StringComparison.CurrentCultureIgnoreCase);
                 int row = alphabet.IndexOf(key[i % key.Length], StringComparison.CurrentCultureIgnoreCase);
